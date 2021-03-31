@@ -104,7 +104,7 @@ return;
 
 Edit the hostname, database name and collection name if necessary.
 
-Note the bson Package comes from the java driver installed into Mirth [under different instructions](https://github.com/morningtundra/NextGen_Mirth_Recipee).
+Note the bson Package comes from the java driver installed into Mirth [under different instructions](https://github.com/morningtundra/NextGen_Mirth_Recipies).
 
 It is possible in this code to use `logger.info(($('toJson')))` to log output to the `Dashboard` message logger for troubleshooting.
 
