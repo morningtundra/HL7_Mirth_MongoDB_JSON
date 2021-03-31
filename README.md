@@ -22,7 +22,7 @@
 
 **NextGen (Mirth) Connect** is an *application middleware message queue*, designed for healthcare data. It's purpose is to process data streams and perform ETL functions.
 
-**MongoDB** is a *document store database* used commonly for unstructured and loosely typed data. It is particularly good at storing nested data structures that don't lend themselves to tabular structured like relational databases.
+**MongoDB** is a *document store database* used commonly for unstructured and loosely typed data. It is particularly good at storing nested data structures that don't lend themselves to tabular structures like relational databases.
 
 In this example we will take an inbound message, transform it into strict JSON and insert into a MongoDB Collection using the Java drivers for Mirth.
 
@@ -52,7 +52,7 @@ Enter the hostname of the machine running the MongoDB server and select *Connect
 
 The size and velocity of inbound HL7 messages is a direct reflection of hospital activity. To prevent the size of the database overwhelming available disk space, the Collection of Documents (HL7 messages) needs to be pruned by deleting oldest Documents.
 
-We will do this with a Shell command using the `.deleteMany()` function.
+We can do this with a Shell command using the mongodb `.deleteMany()` function.
 
 Open the MongoDB Shell by clicking **1** or **2** at the bottom of the window.
 
@@ -92,10 +92,6 @@ Create a `New Destination` and give it a useful name.
 
 Set the `Connector Type` to `Javascript Writer` and add this code to the `Javascript Writer Settings` window.
 
-Edit the hostname, database name and collection name if necessary.
-
-Note the bson Package comes from the java driver installed into Mirth under different instructions.
-
 ```
 var mongoClient = new Packages.com.mongodb.MongoClient("localhost", 27017);
 var database = mongoClient.getDatabase("2576_adt");
@@ -106,7 +102,11 @@ mongoClient.close()
 return;
 ```
 
-It is possible in this code to use `logger.info(($('toJson')))` to 
+Edit the hostname, database name and collection name if necessary.
+
+Note the bson Package comes from the java driver installed into Mirth [under different instructions](https://github.com/morningtundra/NextGen_Mirth_Recipes).
+
+It is possible in this code to use `logger.info(($('toJson')))` to log output to the `Dashboard` message logger for troubleshooting.
 
 ![Writer](img/Screenshot3.png)
 
