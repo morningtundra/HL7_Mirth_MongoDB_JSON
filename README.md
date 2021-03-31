@@ -51,7 +51,7 @@ Enter the hostname of the machine running the MongoDB server and select *Connect
 
 # Prune the Database
 
-The size and velocity of inbound HL7 messages is a direct refelction of hospital activity. To prevent the size of the database overwhelming available disk space, the Collection of Documents (HL7 messages) needs to be pruned by deleting oldest Documents.
+The size and velocity of inbound HL7 messages is a direct reflection of hospital activity. To prevent the size of the database overwhelming available disk space, the Collection of Documents (HL7 messages) needs to be pruned by deleting oldest Documents.
 
 We will do this with a Shell command using the `.deleteMany()` function.
 
