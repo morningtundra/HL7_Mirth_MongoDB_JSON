@@ -1,4 +1,22 @@
-# Storing & Accessing HL7 messages in MongoDB
+# Storing & Accessing HL7 messages in MongoDB with NetxGen (Mirth) Connect and Mongo Compass
+
+## Table of Contents
+
+* [Introduction](#introduction)
+
+    * [Prerequisites](##prerequisites)
+
+    * [General Architecture](#general-architecture)
+
+* [Connecting Compass to MongoDB](#connecting-compass-to-mongodb)
+
+* [Prune the Database](#prune-the-database)
+
+* [Writing HL7 to MongoDB](#writing-hl7-to-mongodb)
+
+* [Access MongoDB HL7 Messages from Code](#access-mongodb-hl7-messages-from-code)
+
+# Introduction
 
 **HL7v2** is a message format in pipe-delimited ("|") strings. This makes for a small message size (kb) but is terse and unwieldy for data mining and analytics. The data contained in an HL7 message is heavily nested.
 
@@ -14,13 +32,9 @@ In this example we will take an inbound message, transform it into strict JSON a
 * MongoDB Server
 * MongoDB Compass Client
 
-## Table of Contents
+## General Architecture
 
-* [Connecting Compass to MongoDB](#connecting-compass-to-mongodb)
-
-* [Prune the Database](#prune-the-database)
-
-* [Writing HL7 to MongoDB](#writing-hl7-to-mongodb)
+![Architecture](img/arch.png)
 
 
 
