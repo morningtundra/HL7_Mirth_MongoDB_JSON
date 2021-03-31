@@ -1,4 +1,4 @@
-# Storing & Accessing HL7 messages in MongoDB with NetxGen (Mirth) Connect and Mongo Compass
+# Storing & Accessing HL7 messages in MongoDB with NextGen (Mirth) Connect and Mongo Compass
 
 ## Table of Contents
 
@@ -39,9 +39,8 @@ Setup and configuration of Mirth with the Mongodb-Java-Driver can be found a [di
 
 ![Architecture](img/arch.png)
 
-
-
 # Connecting Compass to MongoDB
+
 Launch the Compass desktop client and select *Fill in connection fields individually*
 ![Compass](/img/Drawing1.png)
 
@@ -67,10 +66,9 @@ Connect to the database with the `use` utility and supply the database name.
 
     > use a567_adt
 
-
 ![Identify date field](img/Drawing5.png)
 
-For this example we will use a date stored as an interger in the element `HL7Message.MSH.MSH_7.MSH_7_1`.
+For this example we will use a date stored as an integer in the element `HL7Message.MSH.MSH_7.MSH_7_1`.
 
 We will delete all records with a date older, prior, or less than (`$lt`) 2021, March 25th, 1PM. This date will be represented as the value `202103251400`.
 
@@ -80,7 +78,7 @@ In the Shell window issue the command
 
     > db.adt.deleteMany({"HL7Message.MSH.MSH_7.MSH_7_1" : {$lt :202103251400 }})
 
-A simple way to validate the date range of remaining Dcouments (messages) can be found in the `Schema` tab.
+A simple way to validate the date range of remaining Documents (messages) can be found in the `Schema` tab.
 
 ![](img/Drawing7.png)
 
@@ -89,6 +87,7 @@ A simple way to validate the date range of remaining Dcouments (messages) can be
 This step has two components - a Transformer and a Javascript Writer.
 
 ## New MongoDB Destination
+
 Create a `New Destination` and give it a useful name.
 
 Set the `Connector Type` to `Javascript Writer` and add this code to the `Javascript Writer Settings` window.
@@ -110,7 +109,6 @@ return;
 It is possible in this code to use `logger.info(($('toJson')))` to 
 
 ![Writer](img/Screenshot3.png)
-
 
 ## The Transformer
 
@@ -141,6 +139,7 @@ You can now select `Validate Transformer` to make sure it is syntacticly clean a
 Finally, `Deploy Channel` and return to the Mirth Dashboard.
 
 ## Deploy The Channel
+
 Once the channel is deployed it will show the transformed JSON message in the `Log Information` window.
 
 ![Dashboard](img/Screenshot4.png)
