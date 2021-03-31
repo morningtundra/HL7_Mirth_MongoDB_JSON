@@ -28,9 +28,12 @@ In this example we will take an inbound message, transform it into strict JSON a
 
 ## Prerequisites
 
-* Running Mirth Connect instance with the mongodb-java-driver installed.
-* MongoDB Server
-* MongoDB Compass Client
+* Running [NextGen (Mirth) Connect](https://www.nextgen.com/products-and-services/nextgen-connect-integration-engine-downloads) instance
+    * [mongodb-java-driver](https://search.maven.org/search?q=g:org.mongodb) 
+* [MongoDB Server](https://www.mongodb.com/try/download/community)
+* [MongoDB Compass Client](https://www.mongodb.com/try/download/compass)
+
+Setup and configuration of Mirth with the Mongodb-Java-Driver can be found a [different set of instructions](https://github.com/morningtundra/NextGen_Mirth_Recipes).
 
 ## General Architecture
 
